@@ -9,11 +9,10 @@ type Content = string;
 type MessageId = string;
 
 interface Message {
-	content: Content;
+	content: Content | Promise<Content>;
 	id: MessageId;
 	key: string;
 	partyId: Party['id'];
-	pending?: boolean;
 	timestamp: Date;
 }
 

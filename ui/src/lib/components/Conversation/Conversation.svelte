@@ -20,7 +20,6 @@
 			{party}
 			type={index === 0 ? 'self' : 'other'}
 			content={message.content}
-			pending={message.pending}
 			id={message.id}
 		/>
 	{/each}

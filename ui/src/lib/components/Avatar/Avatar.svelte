@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { CommonSize } from '$lib/types/size';
 	import type { AvatarVariant } from '.';
-	import type Colour from '$lib/types/colour';
+	import type { Colour } from '$lib/types/colour';
 
 	interface $$Props {
 		colour?: Colour;
@@ -15,11 +15,13 @@
 </script>
 
 <div
-	class="flex justify-center items-center aspect-square select-none overflow-hidden bg-gradient-to-br from-black/50 to-black/50"
+	class={`flex justify-center items-center aspect-square select-none overflow-hidden bg-gradient-to-br ${
+		colour === undefined ? 'from-neutral-900/50 to-neutral-900/50' : ''
+	}`}
 	class:h-4={size === 'xs'}
 	class:h-8={size === 'sm'}
 	class:h-12={size === 'md'}
-	class:h-18={size === 'lg'}
+	class:h-20={size === 'lg'}
 	class:h-24={size === 'xl'}
 	class:text-xs={size === 'xs'}
 	class:text-sm={size === 'sm'}

@@ -1,4 +1,4 @@
-enum Colours {
+export enum Colours {
 	Red,
 	Orange,
 	Amber,
@@ -20,4 +20,4 @@ enum Colours {
 
 type Colour = Lowercase<keyof typeof Colours>;
 
-export default Colour;
+export type { Colour };

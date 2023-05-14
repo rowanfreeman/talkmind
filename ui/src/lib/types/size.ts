@@ -1,4 +1,4 @@
-enum CommonSizes {
+export enum CommonSizes {
 	xs,
 	sm,
 	md,

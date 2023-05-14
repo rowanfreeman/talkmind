@@ -1,15 +1,21 @@
 <script lang="ts">
 	import type { CommonSize } from '$lib/types/size';
+	import type { Colour } from '$lib/types/colour';
+	import type { ButtonVariant } from '.';
 
 	interface $$Props {
+		colour?: Colour;
 		disabled?: boolean;
 		round?: boolean;
 		size?: CommonSize;
+		variant?: ButtonVariant;
 	}
 
-	export let disabled: $$Props['disabled'] = false,
+	export let colour: $$Props['colour'] = undefined,
+		disabled: $$Props['disabled'] = false,
 		round: $$Props['round'] = false,
-		size: $$Props['size'] = 'md';
+		size: $$Props['size'] = 'md',
+		variant: $$Props['variant'] = 'filled';
 </script>
 
 <button
@@ -40,11 +46,25 @@
 	class:outline-2={size === 'md' || size === 'lg'}
 	class:outline-offset-4={size === 'xl'}
 	class:outline-4={size === 'xl'}
-	class={`flex items-center ${
-		!disabled
-			? 'bg-sky-500 text-sky-100 hover:bg-sky-400 active:bg-sky-600 focus-visible:outline outline-sky-200'
-			: 'bg-sky-500/20 text-sky-100/20'
-	}`}
+	class:red={colour === 'red'}
+	class:orange={colour === 'orange'}
+	class:amber={colour === 'amber'}
+	class:yellow={colour === 'yellow'}
+	class:lime={colour === 'lime'}
+	class:green={colour === 'green'}
+	class:emerald={colour === 'emerald'}
+	class:teal={colour === 'teal'}
+	class:cyan={colour === 'cyan'}
+	class:sky={colour === 'sky'}
+	class:blue={colour === 'blue'}
+	class:indigo={colour === 'indigo'}
+	class:violet={colour === 'violet'}
+	class:purple={colour === 'purple'}
+	class:fuchsia={colour === 'fuchsia'}
+	class:pink={colour === 'pink'}
+	class:rose={colour === 'rose'}
+	class:neutral={colour === undefined}
+	class="flex items-center focus-visible:outline"
 	{disabled}
 	on:mousedown
 	on:mouseup

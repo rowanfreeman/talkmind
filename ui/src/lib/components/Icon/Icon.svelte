@@ -4,7 +4,7 @@
 	import * as heroicons from '@steeze-ui/heroicons';
 
 	import type { CommonSize } from '$lib/types/size';
-	import type { IconType } from '$lib/components/Icon';
+	import type { IconType } from '.';
 
 	interface $$Props {
 		icon?: IconType;
@@ -19,20 +19,16 @@
 		theme: $$Props['theme'] = 'solid';
 
 	const sizeMap: Record<CommonSize, number> = {
-		xs: 8,
-		sm: 12,
-		md: 16,
-		lg: 32,
-		xl: 64,
+		xs: 0.6,
+		sm: 0.8,
+		md: 1,
+		lg: 2,
+		xl: 3,
 	};
 
 	$: derivedIcon = src ?? (icon ? heroicons[icon!] : undefined);
-
-	$: {
-		console.debug({ derivedIcon, src, icon });
-	}
 </script>
 
 {#if derivedIcon}
-	<Icon class="text-sm" src={derivedIcon} {theme} size={`${sizeMap[size ?? 'md']}px`} />
+	<Icon class="text-sm" src={derivedIcon} {theme} size={`${sizeMap[size ?? 'md']}rem`} />
 {/if}
