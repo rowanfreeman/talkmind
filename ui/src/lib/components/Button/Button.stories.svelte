@@ -3,6 +3,7 @@
 	import Button from '.';
 	import { CommonSizes } from '$lib/types/size';
 	import { Colours } from '$lib/types/colour';
+	import { ButtonVariants } from '.';
 
 	const getEnumValues = (obj: Record<string, unknown>) =>
 		Object.values(obj)
@@ -22,6 +23,13 @@
 			control: 'inline-radio',
 			options: getEnumValues(CommonSizes),
 		},
+		tooltip: {
+			control: 'text',
+		},
+		variant: {
+			control: 'inline-radio',
+			options: getEnumValues(ButtonVariants),
+		},
 	}}
 />
 
@@ -31,4 +39,14 @@
 	</Button>
 </Template>
 
-<Story name="Button" args={{ content: 'Button', disabled: false, round: false, size: 'md' }} />
+<Story
+	name="Button"
+	args={{
+		content: 'Button',
+		disabled: false,
+		round: false,
+		size: 'md',
+		tooltip: '',
+		variant: 'filled',
+	}}
+/>

@@ -15,11 +15,17 @@
 <Modal bind:open on:open on:close>
 	<div
 		transition:fly={{ x: -380, duration: 150 }}
-		class="relative bg-neutral-100 dark:bg-neutral-900 w-80 overflow-x-hidden overflow-y-auto"
+		class="relative bg-neutral-100 dark:bg-neutral-900 w-80"
 	>
-		<Button variant="text">
-			<Icon icon="XCircle" />
-		</Button>
-		<slot {open} />
+		<div class="absolute right-0 top-2">
+			<div class="relative left-1/2">
+				<Button variant="text" round on:click={() => (open = false)}>
+					<Icon icon="XCircle" />
+				</Button>
+			</div>
+		</div>
+		<div class="flex overflow-x-hidden overflow-y-auto">
+			<slot {open} />
+		</div>
 	</div>
 </Modal>

@@ -7,4 +7,4 @@ enum ButtonVariants {
 
 type ButtonVariant = Lowercase<keyof typeof ButtonVariants>;
 
-export type { ButtonVariant };
+export { type ButtonVariant, ButtonVariants };

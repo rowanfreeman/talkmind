@@ -26,6 +26,7 @@
 		class="absolute inset-0 flex bg-black/25"
 		on:click|self={() => (open = false)}
 		on:keydown={({ code }) => code === 'Escape' && open && (open = false)}
+		role="presentation"
 	>
 		<slot {open} />
 	</div>
