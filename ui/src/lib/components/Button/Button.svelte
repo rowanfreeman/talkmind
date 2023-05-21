@@ -1,27 +1,14 @@
 <script lang="ts">
-	import type { Placement } from '@floating-ui/dom';
-
 	import Tooltip from '$lib/components/Tooltip';
-	import type { CommonSize } from '$lib/types/size';
-	import type { Colour } from '$lib/types/colour';
-	import type { ButtonVariant } from '.';
+	import type { ButtonProps } from '.';
+	import Icon from '$lib/components/Icon';
 
-	interface TooltipOptions {
-		content: string;
-		placement?: Placement;
-	}
-
-	interface $$Props {
-		colour?: Colour;
-		disabled?: boolean;
-		round?: boolean;
-		size?: CommonSize;
-		tooltip?: TooltipOptions;
-		variant?: ButtonVariant;
-	}
+	interface $$Props extends ButtonProps {}
 
 	export let colour: $$Props['colour'] = undefined,
 		disabled: $$Props['disabled'] = false,
+		iconLeft: $$Props['iconLeft'] = undefined,
+		iconRight: $$Props['iconRight'] = undefined,
 		round: $$Props['round'] = false,
 		size: $$Props['size'] = 'md',
 		tooltip: $$Props['tooltip'] = { content: '' },
@@ -93,7 +80,13 @@
 		on:click
 		bind:this={ref}
 	>
+		{#if iconLeft}
+			<Icon icon={iconLeft} />
+		{/if}
 		<slot />
+		{#if iconRight}
+			<Icon icon={iconRight} />
+		{/if}
 	</button>
 </Tooltip>
 

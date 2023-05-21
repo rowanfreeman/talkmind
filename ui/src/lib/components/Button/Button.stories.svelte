@@ -4,6 +4,7 @@
 	import { CommonSizes } from '$lib/types/size';
 	import { Colours } from '$lib/types/colour';
 	import { ButtonVariants } from '.';
+	import { icons } from '$lib/components/Icon';
 
 	const getEnumValues = (obj: Record<string, unknown>) =>
 		Object.values(obj)
@@ -18,6 +19,14 @@
 		colour: {
 			control: 'select',
 			options: getEnumValues(Colours),
+		},
+		iconLeft: {
+			control: 'select',
+			options: icons,
+		},
+		iconRight: {
+			control: 'select',
+			options: icons,
 		},
 		size: {
 			control: 'inline-radio',
