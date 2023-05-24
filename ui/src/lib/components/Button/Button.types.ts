@@ -14,6 +14,7 @@ interface ButtonProps {
 	disabled?: boolean;
 	iconLeft?: IconType;
 	iconRight?: IconType;
+	loading?: boolean;
 	round?: boolean;
 	size?: CommonSize;
 	tooltip?: TooltipOptions;

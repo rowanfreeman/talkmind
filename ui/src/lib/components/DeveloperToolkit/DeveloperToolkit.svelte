@@ -1,12 +1,9 @@
 <script lang="ts">
 	import Button from '$lib/components/Button';
+	import Text from '$lib/components/Text';
 </script>
 
-<div class="flex gap-4 flex-wrap">
+<div class="flex flex-col gap-4">
+	<Text element="h1">Simulator</Text>
 	<Button colour="sky">Example Function 1</Button>
-	<Button colour="violet">Example Function 2</Button>
-	<Button colour="indigo">Example Function 3</Button>
-	<Button colour="lime">Example Function 4</Button>
-	<Button colour="orange">Example Function 5</Button>
-	<Button colour="purple">Example Function 6</Button>
 </div>

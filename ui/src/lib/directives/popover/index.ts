@@ -35,22 +35,20 @@ const updatePositionFactory = ((ref, tooltipRef, options) => () => {
 const popover = ((node, params) => {
 	let cleanup: (() => void) | undefined = undefined;
 
-	const init = (params?: PopoverProps) => {
-		if (!params?.ref) return;
+	if (!params?.ref) return;
 
-		const { ref } = params;
+	const { ref } = params;
 
-		cleanup = autoUpdate(
-			ref,
-			node,
-			updatePositionFactory(ref, node, { placement: params.placement }),
-		);
-	};
-
-	init(params);
+	cleanup = autoUpdate(
+		ref,
+		node,
+		updatePositionFactory(ref, node, { placement: params.placement }),
+	);
 
 	return {
-		update: (params) => init(params),
+		update: (params) => {
+			popover(node, params);
+		},
 		cleanup: () => cleanup?.(),
 	};
 }) satisfies Action<HTMLElement, PopoverProps>;

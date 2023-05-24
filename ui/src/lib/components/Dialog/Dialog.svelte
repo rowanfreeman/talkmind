@@ -26,12 +26,12 @@
 </script>
 
 <dialog
-	in:scale
+	in:scale={{ duration: 150 }}
 	use:teleport={{ target: 'body' }}
 	bind:this={ref}
 	on:cancel|preventDefault={() => dispatch('cancel')}
 	on:close
-	class="relative flex flex-col drop-shadow rounded min-w-[320px] p-4 gap-4 overflow-visible text-inherit bg-inherit"
+	class="relative flex flex-col drop-shadow rounded min-w-[320px] max-w-xl p-4 gap-4 overflow-visible text-inherit dark:bg-neutral-800 bg-neutral-200"
 >
 	<div class="absolute top-0 right-0 grid place-items-center">
 		<div class="absolute">

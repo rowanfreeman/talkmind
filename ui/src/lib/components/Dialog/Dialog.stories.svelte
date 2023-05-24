@@ -4,6 +4,7 @@
 	import Dialog, { ActionDialog, dialogManager, Dialogs } from '.';
 	import Button from '$lib/components/Button';
 	import Text from '$lib/components/Text';
+	import Markdown from '$lib/components/Markdown';
 
 	let result = '';
 
@@ -29,8 +30,10 @@
 
 <Meta title="Components/Dialog" component={Dialog} />
 
-<Template id="Dialog">
-	<Dialog open title="Title" footer="Footer">Body</Dialog>
+<Template id="Dialog" let:args>
+	<Dialog open {...args}>
+		<Markdown content={args.body} />
+	</Dialog>
 </Template>
 
 <Template id="InteractiveDialog">
@@ -59,6 +62,14 @@
 	</ActionDialog>
 </Template>
 
-<Story name="Dialog" template="Dialog" />
+<Story
+	name="Dialog"
+	template="Dialog"
+	args={{
+		title: 'Title',
+		body: '### Heading\n- Hello there!\n- **Markdown** is welcome',
+		footer: 'Footer',
+	}}
+/>
 <Story name="Interactive" template="InteractiveDialog" />
 <Story name="Action Dialog" template="ActionDialog" />

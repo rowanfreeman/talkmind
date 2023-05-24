@@ -10,6 +10,16 @@
 		Object.values(obj)
 			.filter((x) => isNaN(Number(x)))
 			.map((x) => `${x}`.toLocaleLowerCase());
+
+	let loading = false;
+
+	const onClick = async () => {
+		loading = true;
+		const delay = new Promise((res) => setTimeout(() => res(''), 2000));
+
+		await delay;
+		loading = false;
+	};
 </script>
 
 <Meta
@@ -42,17 +52,50 @@
 	}}
 />
 
-<Template let:args>
+<Template id="button" let:args>
 	<Button {...args}>
+		{args.content ?? ''}
+	</Button>
+</Template>
+
+<Template
+	id="loading"
+	let:args
+	argTypes={{
+		loading: { table: { disable: true } },
+	}}
+>
+	<Button {...args} {loading} on:click={onClick}>
 		{args.content ?? ''}
 	</Button>
 </Template>
 
 <Story
 	name="Button"
+	template="button"
 	args={{
+		colour: 'sky',
 		content: 'Button',
 		disabled: false,
+		iconLeft: '',
+		iconRight: '',
+		loading: false,
+		round: false,
+		size: 'md',
+		tooltip: '',
+		variant: 'filled',
+	}}
+/>
+
+<Story
+	name="Loading"
+	template="loading"
+	args={{
+		colour: 'sky',
+		content: 'Send Message',
+		disabled: false,
+		iconLeft: 'PaperAirplane',
+		iconRight: '',
 		round: false,
 		size: 'md',
 		tooltip: '',

@@ -19,6 +19,10 @@
 		size: $$Props['size'] = 'base',
 		strong: $$Props['strong'] = false;
 
+	$: isHeading = ['h1', 'h2', 'h3', 'h4'].includes(element ?? 'p');
+
+	let className = '';
+
 	export { className as class };
 </script>
 
@@ -26,11 +30,11 @@
 	this={element}
 	class:text-xs={size === 'xs'}
 	class:text-sm={size === 'sm'}
-	class:text-base={size === 'base'}
-	class:text-lg={size === 'lg'}
-	class:text-xl={size === 'xl'}
-	class:text-2xl={size === '2xl'}
-	class:text-3xl={size === '3xl'}
+	class:text-base={size === 'base' && !isHeading}
+	class:text-lg={size === 'lg' || element === 'h4'}
+	class:text-xl={size === 'xl' || element === 'h3'}
+	class:text-2xl={size === '2xl' || element === 'h2'}
+	class:text-3xl={size === '3xl' || element === 'h1'}
 	class:text-4xl={size === '4xl'}
 	class:text-5xl={size === '5xl'}
 	class:text-6xl={size === '6xl'}
@@ -54,7 +58,7 @@
 	class:text-fuchsia-500={colour === 'fuchsia'}
 	class:text-pink-500={colour === 'pink'}
 	class:text-rose-500={colour === 'rose'}
-	{...$$restProps}
+	class={className}
 >
 	<Em {emphasis}>
 		<Strikethrough {strikethrough}>

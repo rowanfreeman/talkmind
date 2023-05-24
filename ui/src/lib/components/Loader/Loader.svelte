@@ -12,11 +12,11 @@
 		variant: $$Props['variant'] = 'bloom';
 
 	const sizeMap: Record<CommonSize, number> = {
-		xs: 16,
-		sm: 24,
-		md: 32,
-		lg: 48,
-		xl: 64,
+		xs: 8,
+		sm: 16,
+		md: 24,
+		lg: 32,
+		xl: 40,
 	};
 
 	$: resolvedSize = sizeMap[size ?? 'md'];
