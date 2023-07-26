@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { CommonSize } from 'lib/types/size';
+	import type { CommonSize } from '$lib/types/size';
 
 	type LoaderVariant = 'bloom' | 'spin';
 

@@ -5,11 +5,11 @@ interface Party {
 
 type Occupants = [Party, Party];
 
-type Content = string;
+type Content = string | Promise<string>;
 type MessageId = string;
 
 interface Message {
-	content: Content | Promise<Content>;
+	content: Content;
 	id: MessageId;
 	key: string;
 	partyId: Party['id'];

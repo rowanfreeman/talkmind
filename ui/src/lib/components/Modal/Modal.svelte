@@ -23,7 +23,7 @@
 {#if open}
 	<div
 		use:teleport={{ target: 'body' }}
-		class="absolute inset-0 flex bg-black/25"
+		class="absolute inset-0 flex bg-black/25 text-neutral-900 dark:text-neutral-100"
 		on:click|self={() => (open = false)}
 		on:keydown={({ code }) => code === 'Escape' && open && (open = false)}
 		role="presentation"

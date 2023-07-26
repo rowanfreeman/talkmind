@@ -10,6 +10,7 @@ interface TooltipOptions {
 }
 
 interface ButtonProps {
+	class?: string;
 	colour?: Colour;
 	disabled?: boolean;
 	iconLeft?: IconType;

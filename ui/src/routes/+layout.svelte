@@ -1,5 +1,5 @@
 <script lang="ts">
-	import App from '$lib/layouts/App';
+	import Shell from '$lib/layouts/Shell';
 	import app from '$lib/constants/app';
 </script>
 
@@ -7,6 +7,6 @@
 	<title>{app.appName}</title>
 </svelte:head>
 
-<App>
+<Shell>
 	<slot />
-</App>
+</Shell>

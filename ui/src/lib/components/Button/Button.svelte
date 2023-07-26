@@ -18,7 +18,10 @@
 		tooltip: $$Props['tooltip'] = { content: '' },
 		variant: $$Props['variant'] = 'filled';
 
+	let className = '';
 	let ref: HTMLElement | undefined = undefined;
+
+	export { className as class };
 </script>
 
 <Tooltip content={tooltip?.content} placement={tooltip?.placement} {ref}>
@@ -77,7 +80,7 @@
 			class:size-md={size === 'md'}
 			class:size-lg={size === 'lg'}
 			class:size-xl={size === 'xl'}
-			class="flex items-center focus-visible:outline disabled:cursor-not-allowed pointer-events-auto"
+			class={`flex items-center focus-visible:outline disabled:cursor-not-allowed pointer-events-auto ${className}`}
 			disabled={disabled || loading}
 			on:mousedown
 			on:mouseup
@@ -89,8 +92,12 @@
 					<Icon icon={iconLeft} {size} />
 				</div>
 			{/if}
-			<div class:invisible={loading}>
-				<slot />
+			<div class:invisible={loading} class="flex-1">
+				{#if $$slots.default}
+					<slot />
+				{:else}
+					&nbsp;
+				{/if}
 			</div>
 			{#if iconRight}
 				<div class:invisible={loading}>
